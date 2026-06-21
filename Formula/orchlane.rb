@@ -8,6 +8,11 @@ class Orchlane < Formula
   version "4.3.1"
   license "Apache-2.0"
 
+  bottle do
+    cellar :any_skip_relocation
+    root_url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download"
+  end
+
   depends_on "python@3.11"
 
   on_macos do
