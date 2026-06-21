@@ -8,6 +8,8 @@ class Orchlane < Formula
   version "4.3.1"
   license "Apache-2.0"
 
+  depends_on "python@3.11"
+
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.3.1/orchlane_4.3.1_darwin_x86_64.tar.gz"
@@ -24,7 +26,7 @@ class Orchlane < Formula
 
         # Install the MCP server Python package into a managed venv so
         # start-mcp.sh works without a dev-repo context/ directory present.
-        system "python3", "-m", "venv", libexec/"venv"
+        system Formula["python@3.11"].opt_bin/"python3.11", "-m", "venv", libexec/"venv"
         system libexec/"venv/bin/pip", "install",
                Dir["wheels/orchlane_context-*.whl"].first
       end
@@ -44,7 +46,7 @@ class Orchlane < Formula
 
         # Install the MCP server Python package into a managed venv so
         # start-mcp.sh works without a dev-repo context/ directory present.
-        system "python3", "-m", "venv", libexec/"venv"
+        system Formula["python@3.11"].opt_bin/"python3.11", "-m", "venv", libexec/"venv"
         system libexec/"venv/bin/pip", "install",
                Dir["wheels/orchlane_context-*.whl"].first
       end
@@ -66,7 +68,7 @@ class Orchlane < Formula
 
         # Install the MCP server Python package into a managed venv so
         # start-mcp.sh works without a dev-repo context/ directory present.
-        system "python3", "-m", "venv", libexec/"venv"
+        system Formula["python@3.11"].opt_bin/"python3.11", "-m", "venv", libexec/"venv"
         system libexec/"venv/bin/pip", "install",
                Dir["wheels/orchlane_context-*.whl"].first
       end
@@ -85,7 +87,7 @@ class Orchlane < Formula
 
         # Install the MCP server Python package into a managed venv so
         # start-mcp.sh works without a dev-repo context/ directory present.
-        system "python3", "-m", "venv", libexec/"venv"
+        system Formula["python@3.11"].opt_bin/"python3.11", "-m", "venv", libexec/"venv"
         system libexec/"venv/bin/pip", "install",
                Dir["wheels/orchlane_context-*.whl"].first
       end
