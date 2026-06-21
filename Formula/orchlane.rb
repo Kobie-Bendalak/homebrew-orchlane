@@ -5,20 +5,13 @@
 class Orchlane < Formula
   desc "Local-first AI development proxy and context engine"
   homepage "https://github.com/Kobie-Bendalak/OrchLane"
-  version "4.3.1"
+  version "4.3.3"
   license "Apache-2.0"
-
-  bottle do
-    cellar :any_skip_relocation
-    root_url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download"
-  end
-
-  depends_on "python@3.11"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.3.1/orchlane_4.3.1_darwin_x86_64.tar.gz"
-      sha256 "c547ca8df7c00b01f5cb1e279b5425ca60472b1b49547f458fd918d6ac7693f3"
+      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.3.3/orchlane_4.3.3_darwin_x86_64.tar.gz"
+      sha256 "2cff549af0fd17dd762fcbcceabcc09f0d34b39e3bd52609a6599d8bb00ef2ae"
 
       define_method(:install) do
         bin.install "orchlane"
@@ -31,14 +24,14 @@ class Orchlane < Formula
 
         # Install the MCP server Python package into a managed venv so
         # start-mcp.sh works without a dev-repo context/ directory present.
-        system Formula["python@3.11"].opt_bin/"python3.11", "-m", "venv", libexec/"venv"
+        system "python3", "-m", "venv", libexec/"venv"
         system libexec/"venv/bin/pip", "install",
                Dir["wheels/orchlane_context-*.whl"].first
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.3.1/orchlane_4.3.1_darwin_arm64.tar.gz"
-      sha256 "81f36d3dcb4132ec71238d02b97f5df6c4436016507e6e0c0fe5e944ca9c2a24"
+      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.3.3/orchlane_4.3.3_darwin_arm64.tar.gz"
+      sha256 "794320d3161d2c616c133399abad680120a7eb2f37f5755fa2198db9b0ae0aae"
 
       define_method(:install) do
         bin.install "orchlane"
@@ -51,7 +44,7 @@ class Orchlane < Formula
 
         # Install the MCP server Python package into a managed venv so
         # start-mcp.sh works without a dev-repo context/ directory present.
-        system Formula["python@3.11"].opt_bin/"python3.11", "-m", "venv", libexec/"venv"
+        system "python3", "-m", "venv", libexec/"venv"
         system libexec/"venv/bin/pip", "install",
                Dir["wheels/orchlane_context-*.whl"].first
       end
@@ -60,8 +53,8 @@ class Orchlane < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.3.1/orchlane_4.3.1_linux_x86_64.tar.gz"
-      sha256 "48705e00b5050a1b0375dc753e7e6363404cba400abc776e148d3dbbdf825fa3"
+      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.3.3/orchlane_4.3.3_linux_x86_64.tar.gz"
+      sha256 "11fa4d7970f1cbe9264916a3f3a4611f698c64101596fbf3fc73ad3a4cf4f47a"
       define_method(:install) do
         bin.install "orchlane"
         generate_completions_from_executable(bin/"orchlane", "completion")
@@ -73,14 +66,14 @@ class Orchlane < Formula
 
         # Install the MCP server Python package into a managed venv so
         # start-mcp.sh works without a dev-repo context/ directory present.
-        system Formula["python@3.11"].opt_bin/"python3.11", "-m", "venv", libexec/"venv"
+        system "python3", "-m", "venv", libexec/"venv"
         system libexec/"venv/bin/pip", "install",
                Dir["wheels/orchlane_context-*.whl"].first
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.3.1/orchlane_4.3.1_linux_arm64.tar.gz"
-      sha256 "86a5a59ce1be3e76d1c55db11951eff7ef3b9a38d8db32d3511ba530c72c4ed9"
+      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.3.3/orchlane_4.3.3_linux_arm64.tar.gz"
+      sha256 "d4a1bf9c7f09e65ed340f79c247cc94ecb1a58b75728ad764e76c4fca4747d53"
       define_method(:install) do
         bin.install "orchlane"
         generate_completions_from_executable(bin/"orchlane", "completion")
@@ -92,7 +85,7 @@ class Orchlane < Formula
 
         # Install the MCP server Python package into a managed venv so
         # start-mcp.sh works without a dev-repo context/ directory present.
-        system Formula["python@3.11"].opt_bin/"python3.11", "-m", "venv", libexec/"venv"
+        system "python3", "-m", "venv", libexec/"venv"
         system libexec/"venv/bin/pip", "install",
                Dir["wheels/orchlane_context-*.whl"].first
       end
