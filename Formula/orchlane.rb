@@ -28,6 +28,7 @@ class Orchlane < Formula
         # start-mcp.sh works without a dev-repo context/ directory present.
         python_bin = "#{Formula["python@3.12"].opt_bin}/python3.12"
         system python_bin, "-m", "venv", libexec/"venv"
+        system libexec/"venv/bin/pip", "install", "--upgrade", "pip", "setuptools", "wheel"
         system libexec/"venv/bin/pip", "install",
                Dir["wheels/orchlane_context-*.whl"].first
       end
@@ -49,6 +50,7 @@ class Orchlane < Formula
         # start-mcp.sh works without a dev-repo context/ directory present.
         python_bin = "#{Formula["python@3.12"].opt_bin}/python3.12"
         system python_bin, "-m", "venv", libexec/"venv"
+        system libexec/"venv/bin/pip", "install", "--upgrade", "pip", "setuptools", "wheel"
         system libexec/"venv/bin/pip", "install",
                Dir["wheels/orchlane_context-*.whl"].first
       end
@@ -72,6 +74,7 @@ class Orchlane < Formula
         # start-mcp.sh works without a dev-repo context/ directory present.
         python_bin = "#{Formula["python@3.12"].opt_bin}/python3.12"
         system python_bin, "-m", "venv", libexec/"venv"
+        system libexec/"venv/bin/pip", "install", "--upgrade", "pip", "setuptools", "wheel"
         system libexec/"venv/bin/pip", "install",
                Dir["wheels/orchlane_context-*.whl"].first
       end
@@ -92,6 +95,7 @@ class Orchlane < Formula
         # start-mcp.sh works without a dev-repo context/ directory present.
         python_bin = "#{Formula["python@3.12"].opt_bin}/python3.12"
         system python_bin, "-m", "venv", libexec/"venv"
+        system libexec/"venv/bin/pip", "install", "--upgrade", "pip", "setuptools", "wheel"
         system libexec/"venv/bin/pip", "install",
                Dir["wheels/orchlane_context-*.whl"].first
       end
