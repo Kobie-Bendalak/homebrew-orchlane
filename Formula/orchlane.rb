@@ -5,13 +5,13 @@
 class Orchlane < Formula
   desc "Local-first AI development proxy and context engine"
   homepage "https://github.com/Kobie-Bendalak/OrchLane"
-  version "4.5.1"
+  version "4.5.2"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.5.1/orchlane_4.5.1_darwin_x86_64.tar.gz"
-      sha256 "6db56a317f96a7df92518991ec8412f3978f33276d2b073e6762821141236272"
+      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.5.2/orchlane_4.5.2_darwin_x86_64.tar.gz"
+      sha256 "6e2de395caa9e78def7dd09df00b30bf5d29206a2a2fceddd15ee40f182c9396"
 
       define_method(:install) do
         bin.install "orchlane"
@@ -28,8 +28,8 @@ class Orchlane < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.5.1/orchlane_4.5.1_darwin_arm64.tar.gz"
-      sha256 "79a19ebbcfd8bb31f5bf2e9048ff081974515095b790981b551897a9c7a997f4"
+      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.5.2/orchlane_4.5.2_darwin_arm64.tar.gz"
+      sha256 "f5278b9aee2147b116b7d5404fe229d3a7e4ac7904f2f85cf1099d5b6f5b6a11"
 
       define_method(:install) do
         bin.install "orchlane"
@@ -49,8 +49,8 @@ class Orchlane < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.5.1/orchlane_4.5.1_linux_x86_64.tar.gz"
-      sha256 "4c01941dade31803e8b911022f9dbcf2ab52b7b37a6d5833fb077eec7538bd54"
+      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.5.2/orchlane_4.5.2_linux_x86_64.tar.gz"
+      sha256 "a1b562a966f20942f58c75382ff4fd7244f30d21dd95ec70a99fe99bc1f55ccc"
       define_method(:install) do
         bin.install "orchlane"
         generate_completions_from_executable(bin/"orchlane", "completion")
@@ -66,8 +66,8 @@ class Orchlane < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.5.1/orchlane_4.5.1_linux_arm64.tar.gz"
-      sha256 "7a79604d947eeb506c16f617a96aaaf22f7129e43f59aaa03cea041cf1ba037e"
+      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.5.2/orchlane_4.5.2_linux_arm64.tar.gz"
+      sha256 "143f19c6799ce1abe0bce52248d5356cf64ed752391408c3a07fcf7f5c908d91"
       define_method(:install) do
         bin.install "orchlane"
         generate_completions_from_executable(bin/"orchlane", "completion")
