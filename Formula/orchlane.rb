@@ -8,7 +8,7 @@ class Orchlane < Formula
   version "4.3.3"
   license "Apache-2.0"
 
-  depends_on "python@3.12"
+  # No external Python dependency — venv is prebuilt and embedded in the tarball
 
   on_macos do
     if Hardware::CPU.intel?
@@ -24,13 +24,9 @@ class Orchlane < Formula
         libexec.install Dir["scripts/*watchdog*"]
         libexec.install "scripts/start-mcp.sh"
 
-        # Install the MCP server Python package into a managed venv so
-        # start-mcp.sh works without a dev-repo context/ directory present.
-        python_bin = "#{Formula["python@3.12"].opt_bin}/python3.12"
-        system python_bin, "-m", "venv", libexec/"venv"
-        system libexec/"venv/bin/pip", "install", "--upgrade", "pip", "setuptools", "wheel"
-        system libexec/"venv/bin/pip", "install",
-               Dir["wheels/orchlane_context-*.whl"].first
+        # Extract prebuilt venv with all orchlane_context dependencies already installed
+        system "tar", "-xzf", "venv.tar.gz", "-C", libexec
+        system "mv", File.join(libexec, "orchlane-build-venv"), File.join(libexec, "venv")
       end
     end
     if Hardware::CPU.arm?
@@ -46,13 +42,9 @@ class Orchlane < Formula
         libexec.install Dir["scripts/*watchdog*"]
         libexec.install "scripts/start-mcp.sh"
 
-        # Install the MCP server Python package into a managed venv so
-        # start-mcp.sh works without a dev-repo context/ directory present.
-        python_bin = "#{Formula["python@3.12"].opt_bin}/python3.12"
-        system python_bin, "-m", "venv", libexec/"venv"
-        system libexec/"venv/bin/pip", "install", "--upgrade", "pip", "setuptools", "wheel"
-        system libexec/"venv/bin/pip", "install",
-               Dir["wheels/orchlane_context-*.whl"].first
+        # Extract prebuilt venv with all orchlane_context dependencies already installed
+        system "tar", "-xzf", "venv.tar.gz", "-C", libexec
+        system "mv", File.join(libexec, "orchlane-build-venv"), File.join(libexec, "venv")
       end
     end
   end
@@ -70,13 +62,9 @@ class Orchlane < Formula
         libexec.install Dir["scripts/*watchdog*"]
         libexec.install "scripts/start-mcp.sh"
 
-        # Install the MCP server Python package into a managed venv so
-        # start-mcp.sh works without a dev-repo context/ directory present.
-        python_bin = "#{Formula["python@3.12"].opt_bin}/python3.12"
-        system python_bin, "-m", "venv", libexec/"venv"
-        system libexec/"venv/bin/pip", "install", "--upgrade", "pip", "setuptools", "wheel"
-        system libexec/"venv/bin/pip", "install",
-               Dir["wheels/orchlane_context-*.whl"].first
+        # Extract prebuilt venv with all orchlane_context dependencies already installed
+        system "tar", "-xzf", "venv.tar.gz", "-C", libexec
+        system "mv", File.join(libexec, "orchlane-build-venv"), File.join(libexec, "venv")
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
@@ -91,13 +79,9 @@ class Orchlane < Formula
         libexec.install Dir["scripts/*watchdog*"]
         libexec.install "scripts/start-mcp.sh"
 
-        # Install the MCP server Python package into a managed venv so
-        # start-mcp.sh works without a dev-repo context/ directory present.
-        python_bin = "#{Formula["python@3.12"].opt_bin}/python3.12"
-        system python_bin, "-m", "venv", libexec/"venv"
-        system libexec/"venv/bin/pip", "install", "--upgrade", "pip", "setuptools", "wheel"
-        system libexec/"venv/bin/pip", "install",
-               Dir["wheels/orchlane_context-*.whl"].first
+        # Extract prebuilt venv with all orchlane_context dependencies already installed
+        system "tar", "-xzf", "venv.tar.gz", "-C", libexec
+        system "mv", File.join(libexec, "orchlane-build-venv"), File.join(libexec, "venv")
       end
     end
   end
