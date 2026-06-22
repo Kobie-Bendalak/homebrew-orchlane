@@ -5,13 +5,13 @@
 class Orchlane < Formula
   desc "Local-first AI development proxy and context engine"
   homepage "https://github.com/Kobie-Bendalak/OrchLane"
-  version "4.5.7"
+  version "4.5.8"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.5.7/orchlane_4.5.7_darwin_x86_64.tar.gz"
-      sha256 "2d90d74dd5fac104847c8e86677eceec033c508fd67133bb72438db7c99047ed"
+      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.5.8/orchlane_4.5.8_darwin_x86_64.tar.gz"
+      sha256 "53280af3bdcb78aa0184f5c1bd938702b7b713527acf219461286dd1ab2d13f7"
 
       define_method(:install) do
         bin.install "orchlane"
@@ -21,6 +21,7 @@ class Orchlane < Formula
         libexec.install "scripts/ml_inference_server.py"
         libexec.install Dir["scripts/*watchdog*"]
         libexec.install "scripts/start-mcp.sh"
+        libexec.install Dir["scripts/install-*.sh"]
 
         # Extract prebuilt venv with all orchlane_context dependencies already installed
         system "tar", "-xzf", "venv.tar.gz", "-C", libexec
@@ -28,8 +29,8 @@ class Orchlane < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.5.7/orchlane_4.5.7_darwin_arm64.tar.gz"
-      sha256 "5249f428f137315e1a2d5ffa3418fc0772618ffa2dba43c8c1ded6ff14bf09bc"
+      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.5.8/orchlane_4.5.8_darwin_arm64.tar.gz"
+      sha256 "fdbbc6bfb62b84a5edd298afeb83cf61823cc39d2ae881275f0e827b2f45f754"
 
       define_method(:install) do
         bin.install "orchlane"
@@ -39,6 +40,7 @@ class Orchlane < Formula
         libexec.install "scripts/ml_inference_server.py"
         libexec.install Dir["scripts/*watchdog*"]
         libexec.install "scripts/start-mcp.sh"
+        libexec.install Dir["scripts/install-*.sh"]
 
         # Extract prebuilt venv with all orchlane_context dependencies already installed
         system "tar", "-xzf", "venv.tar.gz", "-C", libexec
@@ -49,8 +51,8 @@ class Orchlane < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.5.7/orchlane_4.5.7_linux_x86_64.tar.gz"
-      sha256 "c03ee63bbc9cdd7e2edaeb843a81250bfeb7d939c0d727767675ee4cbac84305"
+      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.5.8/orchlane_4.5.8_linux_x86_64.tar.gz"
+      sha256 "74cc5ecc485721df1c9322c40fdbdb11dacbdd401ce0f71ade2b999d802c99a1"
       define_method(:install) do
         bin.install "orchlane"
         generate_completions_from_executable(bin/"orchlane", "completion")
@@ -59,6 +61,7 @@ class Orchlane < Formula
         libexec.install "scripts/ml_inference_server.py"
         libexec.install Dir["scripts/*watchdog*"]
         libexec.install "scripts/start-mcp.sh"
+        libexec.install Dir["scripts/install-*.sh"]
 
         # Extract prebuilt venv with all orchlane_context dependencies already installed
         system "tar", "-xzf", "venv.tar.gz", "-C", libexec
@@ -66,8 +69,8 @@ class Orchlane < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.5.7/orchlane_4.5.7_linux_arm64.tar.gz"
-      sha256 "dc03226ce71f085084545d1681fbd011aa2bc0378eae0c2a541dd06b7d7bf3f8"
+      url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v4.5.8/orchlane_4.5.8_linux_arm64.tar.gz"
+      sha256 "f9e25a0defe51b0ff747fa4096ca441235e5377068bfdea5808b497d952fceca"
       define_method(:install) do
         bin.install "orchlane"
         generate_completions_from_executable(bin/"orchlane", "completion")
@@ -76,6 +79,7 @@ class Orchlane < Formula
         libexec.install "scripts/ml_inference_server.py"
         libexec.install Dir["scripts/*watchdog*"]
         libexec.install "scripts/start-mcp.sh"
+        libexec.install Dir["scripts/install-*.sh"]
 
         # Extract prebuilt venv with all orchlane_context dependencies already installed
         system "tar", "-xzf", "venv.tar.gz", "-C", libexec
