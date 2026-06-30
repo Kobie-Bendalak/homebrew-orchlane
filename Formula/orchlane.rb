@@ -11,7 +11,7 @@ class Orchlane < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v5.0.0/orchlane_5.0.0_darwin_x86_64.tar.gz"
-      sha256 "47e78a6f2f9bc5dae4bcd709e277a7aa55e07bc8f94d27d2af90ed39bbc07445"
+      sha256 "3a7ccbe71b6aca311d358987189bc1a69acd40b7c894312b25d21b2762e2ede1"
 
       define_method(:install) do
         bin.install "orchlane"
@@ -30,7 +30,7 @@ class Orchlane < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v5.0.0/orchlane_5.0.0_darwin_arm64.tar.gz"
-      sha256 "6b8809d2edd7e13cc07cb4e099b7b9f13448402210dc5db0b9039a8e05c863e5"
+      sha256 "0aebe80e35cf2af899eaeaccb72be2b78cf6ad8f996d8f32915e22ec533ff580"
 
       define_method(:install) do
         bin.install "orchlane"
@@ -52,7 +52,7 @@ class Orchlane < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v5.0.0/orchlane_5.0.0_linux_x86_64.tar.gz"
-      sha256 "fa8f3cb0693d03fa212b8af86da965b2b6c88bcabd82581a81aaa571144178ce"
+      sha256 "63e390edf3cc294d1ba7b154cd8df21b9ee24ee112da8bfd09006e5ff236cbbd"
       define_method(:install) do
         bin.install "orchlane"
         generate_completions_from_executable(bin/"orchlane", "completion")
@@ -70,7 +70,7 @@ class Orchlane < Formula
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/Kobie-Bendalak/orchlane-dist/releases/download/v5.0.0/orchlane_5.0.0_linux_arm64.tar.gz"
-      sha256 "9cf5f82fa4aa9c7aa07990e11499d1013413a3272001c912fb7dbd44828bc286"
+      sha256 "2e02edfe1143c78842b67016a157371ba4f1f92028d0809fa6d2a95685ce4c3c"
       define_method(:install) do
         bin.install "orchlane"
         generate_completions_from_executable(bin/"orchlane", "completion")
